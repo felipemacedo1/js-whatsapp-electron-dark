@@ -1,0 +1,27 @@
+  
+{
+  "name": "whatsapp-electron-dark",
+  "version": "1.0.0",
+  "description": "Cliente desktop com tema dark para WhatsApp Web",
+  "author": {
+    "name": "Felipe Macedo",
+    "email": "felipe@exemplo.com"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.felipemacedo1-developer.whatsappdesktop",
+    "linux": {
+      "target": "deb",
+      "icon": "icon.png",
+      "category": "Utility"
+    }
+  }
+}
