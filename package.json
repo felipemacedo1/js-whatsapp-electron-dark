@@ -1,27 +1,110 @@
-  
 {
-  "name": "whatsapp-electron-dark",
+  "name": "zapdesk",
   "version": "1.0.0",
-  "description": "Cliente desktop com tema dark para WhatsApp Web",
+  "description": "ZapDesk - Cliente Desktop moderno para WhatsApp Web com tema escuro e notificações nativas",
   "author": {
     "name": "Felipe Macedo",
-    "email": "felipe@exemplo.com"
+    "email": "contato.dev.macedo@gmail.com"
   },
-  "main": "main.js",
+  "homepage": "https://github.com/felipemacedo1/zapdesk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felipemacedo1/zapdesk.git"
+  },
+  "keywords": ["whatsapp", "desktop", "electron", "dark-theme", "messaging"],
+  "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --linux"
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder --linux --win --mac",
+    "dist": "npm run build:linux",
+    "pack": "electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps"
   },
   "devDependencies": {
     "electron": "^30.0.0",
-    "electron-builder": "^26.0.12"
+    "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.felipemacedo1-developer.whatsappdesktop",
+    "appId": "com.felipemacedo1.zapdesk",
+    "productName": "ZapDesk",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "build/icon.*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "build",
+        "to": "build",
+        "filter": ["**/*"]
+      }
+    ],
     "linux": {
-      "target": "deb",
-      "icon": "icon.png",
-      "category": "Utility"
+      "target": [
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        },
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "tar.gz",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.png",
+      "category": "Network;InstantMessaging;",
+      "synopsis": "Cliente Desktop para WhatsApp Web",
+      "description": "ZapDesk é um cliente desktop moderno para WhatsApp Web com interface escura, notificações nativas e otimização para Linux.",
+      "desktop": {
+        "Name": "ZapDesk",
+        "Comment": "Cliente Desktop para WhatsApp Web",
+        "GenericName": "Mensageiro Instantâneo",
+        "Keywords": "whatsapp;mensagem;chat;zapdesk;",
+        "Categories": "Network;InstantMessaging;",
+        "StartupNotify": "true",
+        "StartupWMClass": "ZapDesk"
+      }
+    },
+    "deb": {
+      "packageCategory": "net",
+      "priority": "optional",
+      "depends": [
+        "gconf2",
+        "gconf-service",
+        "libnotify4",
+        "libappindicator1",
+        "libxtst6",
+        "libnss3"
+      ]
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.icns",
+      "category": "public.app-category.social-networking"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     }
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
