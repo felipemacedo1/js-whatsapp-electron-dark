@@ -1,8 +1,21 @@
 # Changelog
 
-Todas as mudanças notáveis deste projeto serão documentadas neste arquivo.
+Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
-O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
+## [Não lançado]
+
+## [v0.9.0] - 2025-07-28
+
+### Adicionado
+- feat(ui): redesign landing page with professional design system
+- feat: atualizações gerais, remoção de GUIA-DESENVOLVIMENTO.md, ajustes e novos arquivos
+- feat(core): estrutura inicial do ZapDesk com tema escuro, sessão persistente e notificações nativas
+
+### Corrigido
+- fix: import Notification from electron
+
+### Alterado
+
 e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Não lançado]

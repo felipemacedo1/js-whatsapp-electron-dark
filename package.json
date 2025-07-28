@@ -1,6 +1,6 @@
 {
   "name": "zapdesk",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "ZapDesk - Cliente Desktop moderno para WhatsApp Web com tema escuro e notificações nativas",
   "author": {
     "name": "Felipe Macedo",
@@ -11,7 +11,13 @@
     "type": "git",
     "url": "https://github.com/felipemacedo1/zapdesk.git"
   },
-  "keywords": ["whatsapp", "desktop", "electron", "dark-theme", "messaging"],
+  "keywords": [
+    "whatsapp",
+    "desktop",
+    "electron",
+    "dark-theme",
+    "messaging"
+  ],
   "main": "main.js",
   "scripts": {
     "start": "electron . --no-sandbox",
@@ -36,7 +42,7 @@
     },
     "files": [
       "main.js",
-      "preload.js", 
+      "preload.js",
       "build/icon.*",
       "package.json"
     ],
@@ -44,22 +50,30 @@
       {
         "from": "build",
         "to": "build",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       }
     ],
     "linux": {
       "target": [
         {
           "target": "deb",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "AppImage",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         },
         {
           "target": "tar.gz",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "build/icon.png",
