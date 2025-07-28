@@ -28,7 +28,7 @@ let tray = null;
 
 function createWindow() {
   // Caminho do ícone
-  const iconPath = path.join(__dirname, '..', 'build', 'icon.png');
+  const iconPath = path.join(__dirname, 'build', 'icon.png');
   
   // Cria a janela principal
   mainWindow = new BrowserWindow({

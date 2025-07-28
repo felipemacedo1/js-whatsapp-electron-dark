@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZapDesk - Download</title>
+    <meta
+      name="description"
+      content="Baixe o ZapDesk - Cliente Desktop moderno para WhatsApp Web com tema escuro e notificações nativas"
+    />
+    <meta
+      name="keywords"
+      content="whatsapp, desktop, linux, ubuntu, electron, dark theme"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="ZapDesk - Cliente Desktop para WhatsApp"
+    />
+    <meta
+      property="og:description"
+      content="Cliente Desktop moderno com tema escuro e notificações nativas"
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/felipemacedo1/zapdesk/main/build/icon.png"
+    />
+    <meta property="og:url" content="https://felipemacedo.github.io/zapdesk" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 50px;
+      }
+
+      .logo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 30px;
+      }
+
+      .download-section {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .platform-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .platform-card {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .platform-card:hover {
+        transform: translateY(-5px);
+        border-color: #667eea;
+      }
+
+      .platform-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .platform-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+      }
+
+      .download-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      .download-btn.secondary {
+        background: #6c757d;
+        box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+      }
+
+      .file-info {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-top: 10px;
+      }
+
+      .features {
+        margin-top: 50px;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .feature {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .feature-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #2c3e50;
+      }
+
+      .stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin: 40px 0;
+        flex-wrap: wrap;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #667eea;
+      }
+
+      .stat-label {
+        color: #6c757d;
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 50px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .social-links {
+        margin: 20px 0;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.2rem;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+      }
+
+      .social-links a:hover {
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .platform-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <img
+          src="https://raw.githubusercontent.com/felipemacedo1/zapdesk/main/build/icon.png"
+          alt="ZapDesk Logo"
+          class="logo"
+        />
+        <h1>ZapDesk</h1>
+        <p class="subtitle">Cliente Desktop moderno para WhatsApp Web</p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number" id="downloads">1.2k+</div>
+            <div class="stat-label">Downloads</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">⭐ 4.8</div>
+            <div class="stat-label">Avaliação</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">🆓</div>
+            <div class="stat-label">Grátis</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="download-section">
+        <h2 style="text-align: center; margin-bottom: 20px; color: #2c3e50">
+          📥 Download ZapDesk v1.0.0
+        </h2>
+
+        <div class="platform-grid">
+          <div class="platform-card">
+            <div class="platform-icon">🐧</div>
+            <h3 class="platform-title">Ubuntu/Debian</h3>
+            <p>Pacote DEB para instalação nativa</p>
+            <a
+              href="https://github.com/felipemacedo1/zapdesk/releases/latest/download/zapdesk_1.0.0_amd64.deb"
+              class="download-btn"
+            >
+              📦 Download DEB
+            </a>
+            <div class="file-info">~85 MB • Requer Ubuntu 18.04+</div>
+          </div>
+
+          <div class="platform-card">
+            <div class="platform-icon">🌐</div>
+            <h3 class="platform-title">Linux Universal</h3>
+            <p>AppImage portátil para qualquer distro</p>
+            <a
+              href="https://github.com/felipemacedo1/zapdesk/releases/latest/download/zapdesk-1.0.0-x86_64.AppImage"
+              class="download-btn"
+            >
+              � Download AppImage
+            </a>
+            <div class="file-info">~90 MB • Funciona em qualquer Linux</div>
+          </div>
+
+          <div class="platform-card">
+            <div class="platform-icon">📁</div>
+            <h3 class="platform-title">Portátil</h3>
+            <p>Arquivo comprimido para uso manual</p>
+            <a
+              href="https://github.com/felipemacedo1/zapdesk/releases/latest/download/zapdesk-1.0.0-linux-x64.tar.gz"
+              class="download-btn secondary"
+            >
+              📦 Download TAR.GZ
+            </a>
+            <div class="file-info">~80 MB • Extrair e executar</div>
+          </div>
+        </div>
+
+        <div class="features">
+          <h3 style="text-align: center; margin-bottom: 30px; color: #2c3e50">
+            ✨ Principais Funcionalidades
+          </h3>
+
+          <div class="features-grid">
+            <div class="feature">
+              <div class="feature-icon">🌙</div>
+              <h4 class="feature-title">Tema Escuro</h4>
+              <p>
+                Interface otimizada para uso prolongado com menos fadiga visual
+              </p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">🔔</div>
+              <h4 class="feature-title">Notificações Nativas</h4>
+              <p>Receba alertas do sistema operacional para novas mensagens</p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">🗂️</div>
+              <h4 class="feature-title">Bandeja do Sistema</h4>
+              <p>
+                Minimize para a área de notificação e mantenha o app sempre
+                acessível
+              </p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">💾</div>
+              <h4 class="feature-title">Login Persistente</h4>
+              <p>Mantenha sua sessão salva entre reinicializações do sistema</p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">⚡</div>
+              <h4 class="feature-title">Performance Otimizada</h4>
+              <p>
+                Configurado para máxima compatibilidade e baixo uso de recursos
+              </p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">🛡️</div>
+              <h4 class="feature-title">Seguro & Privado</h4>
+              <p>Sem rastreamento adicional, apenas o WhatsApp Web oficial</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+          "
+        >
+          <h3 style="color: #2c3e50; margin-bottom: 15px">
+            🚀 Instalação Rápida
+          </h3>
+          <code
+            style="
+              background: #2c3e50;
+              color: #00ff00;
+              padding: 15px;
+              border-radius: 8px;
+              display: inline-block;
+              margin: 10px;
+            "
+          >
+            wget
+            https://github.com/felipemacedo1/zapdesk/releases/latest/download/zapdesk_1.0.0_amd64.deb
+            && sudo dpkg -i zapdesk_1.0.0_amd64.deb
+          </code>
+          <p style="margin-top: 15px; color: #6c757d">
+            Ou baixe o AppImage, dê permissão de execução e execute diretamente
+          </p>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="social-links">
+          <a href="https://github.com/felipemacedo1/zapdesk" target="_blank"
+            >🔗 GitHub</a
+          >
+          <a
+            href="https://github.com/felipemacedo1/zapdesk/releases"
+            target="_blank"
+            >📋 Releases</a
+          >
+          <a
+            href="https://github.com/felipemacedo1/zapdesk/issues"
+            target="_blank"
+            >🐛 Issues</a
+          >
+          <a
+            href="https://github.com/felipemacedo1/zapdesk/discussions"
+            target="_blank"
+            >💬 Discussões</a
+          >
+        </div>
+
+        <p>© 2025 Felipe Macedo • ZapDesk v1.0.0</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7">
+          Projeto não oficial • WhatsApp é marca registrada da Meta Inc.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Simular contagem de downloads
+      function animateCounter() {
+        const counter = document.getElementById("downloads");
+        let count = 0;
+        const target = 1200;
+        const increment = target / 100;
+
+        const timer = setInterval(() => {
+          count += increment;
+          if (count >= target) {
+            counter.textContent = "1.2k+";
+            clearInterval(timer);
+          } else {
+            counter.textContent = Math.floor(count).toLocaleString();
+          }
+        }, 20);
+      }
+
+      // Detectar sistema operacional
+      function detectOS() {
+        const userAgent = navigator.userAgent;
+        const cards = document.querySelectorAll(".platform-card");
+
+        if (userAgent.includes("Linux")) {
+          // Destacar opção Linux
+          cards.forEach((card) => {
+            if (
+              card
+                .querySelector(".platform-title")
+                .textContent.includes("Ubuntu") ||
+              card
+                .querySelector(".platform-title")
+                .textContent.includes("Universal")
+            ) {
+              card.style.border = "2px solid #28a745";
+              card.style.background = "#f8fff9";
+            }
+          });
+        }
+      }
+
+      // Executar quando a página carregar
+      document.addEventListener("DOMContentLoaded", () => {
+        animateCounter();
+        detectOS();
+      });
+
+      // Analytics simples (opcional)
+      function trackDownload(type) {
+        console.log(`Download iniciado: ${type}`);
+        // Aqui você pode adicionar Google Analytics ou similar
+      }
+
+      // Adicionar event listeners aos botões de download
+      document.querySelectorAll(".download-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const type = e.target.textContent.includes("DEB")
+            ? "deb"
+            : e.target.textContent.includes("AppImage")
+            ? "appimage"
+            : "tarball";
+          trackDownload(type);
+        });
+      });
+    </script>
+  </body>
+</html>

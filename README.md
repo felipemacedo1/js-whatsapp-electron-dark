@@ -7,8 +7,8 @@
 **Cliente Desktop moderno para WhatsApp Web com tema escuro e notificações nativas**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub release](https://img.shields.io/github/v/release/felipemacedo/zapdesk)](https://github.com/felipemacedo1/zapdesk/releases)
-[![Downloads](https://img.shields.io/github/downloads/felipemacedo/zapdesk/total)](https://github.com/felipemacedo1/zapdesk/releases)
+[![GitHub release](https://img.shields.io/github/v/release/felipemacedo1/zapdesk)](https://github.com/felipemacedo1/zapdesk/releases)
+[![Downloads](https://img.shields.io/github/downloads/felipemacedo1/zapdesk/total)](https://github.com/felipemacedo1/zapdesk/releases)
 [![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey)](https://github.com/felipemacedo1/zapdesk)
 
 [📥 Download](#-download) • [✨ Funcionalidades](#-funcionalidades) • [🔧 Instalação](#-instalação) • [🤝 Contribuir](#-contribuir)
@@ -245,8 +245,8 @@ Este projeto está licenciado sob a **Licença MIT** - veja o arquivo [LICENSE](
 
 **⭐ Se você gostou do ZapDesk, deixe uma estrela no repositório!**
 
-[![GitHub stars](https://img.shields.io/github/stars/felipemacedo/zapdesk?style=social)](https://github.com/felipemacedo1/zapdesk/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/felipemacedo/zapdesk?style=social)](https://github.com/felipemacedo1/zapdesk/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/felipemacedo1/zapdesk?style=social)](https://github.com/felipemacedo1/zapdesk/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/felipemacedo1/zapdesk?style=social)](https://github.com/felipemacedo1/zapdesk/network/members)
 
 **Desenvolvido com ❤️ por [Felipe Macedo](https://github.com/felipemacedo1)**
 

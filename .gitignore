@@ -173,3 +173,6 @@ coverage/
 # Documentation builds
 docs/_build/
 site/
+
+
+GUIA-DESENVOLVIMENTO.md
