@@ -180,7 +180,7 @@ Contribuições são muito bem-vindas!
 ### Como contribuir
 
 1. **Fork** o projeto
-2. **Clone** seu fork: `git clone https://github.com/seunome/zapdesk.git`
+2. **Clone** seu fork: `git clone https://github.com/felipemacedo1/zapdesk.git`
 3. **Crie uma branch**: `git checkout -b feature/nova-funcionalidade`
 4. **Faça suas alterações** e **commit**: `git commit -m 'Adiciona nova funcionalidade'`
 5. **Push** para a branch: `git push origin feature/nova-funcionalidade`
@@ -248,6 +248,6 @@ Este projeto está licenciado sob a **Licença MIT** - veja o arquivo [LICENSE](
 [![GitHub stars](https://img.shields.io/github/stars/felipemacedo1/zapdesk?style=social)](https://github.com/felipemacedo1/zapdesk/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/felipemacedo1/zapdesk?style=social)](https://github.com/felipemacedo1/zapdesk/network/members)
 
-**Desenvolvido com ❤️ por [Felipe Macedo](https://github.com/felipemacedo1)**
+**Desenvolvido por [Felipe Macedo](https://github.com/felipemacedo1)**
 
 </div>
