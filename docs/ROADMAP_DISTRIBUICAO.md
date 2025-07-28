@@ -21,7 +21,7 @@ chmod +x scripts/release.sh
 npm run build:linux
 
 # 5. Configurar repositório GitHub
-git remote add origin https://github.com/SEU_USUARIO/zapdesk.git
+git remote add origin https://github.com/felipemacedo1/zapdesk.git
 git push -u origin main
 
 # 6. Fazer primeiro release

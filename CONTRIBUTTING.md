@@ -59,7 +59,7 @@ Este projeto adere ao [Código de Conduta](CODE_OF_CONDUCT.md). Ao participar, v
 
 ```bash
 # 1. Fork e clone o repositório
-git clone https://github.com/SEU_USUARIO/zapdesk.git
+git clone https://github.com/felipemacedo1/zapdesk.git
 cd zapdesk
 
 # 2. Instale dependências
