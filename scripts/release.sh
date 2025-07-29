@@ -311,7 +311,7 @@ commit_and_tag() {
     log "Fazendo commit das alterações..."
     
     # Adicionar arquivos modificados
-    git add package.json VERSION CHANGELOG.md 2>/dev/null || true
+    git add package.json VERSION CHANGELOG.md package-lock.json 2>/dev/null || true
     
     # Commit das alterações
     git commit -m "chore(release): bump version to v$new_version
