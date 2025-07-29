@@ -1,31 +1,48 @@
-name: Deploy to GitHub Pages
+# .github/workflows/pages.yml
+name: Deploy static content to Pages
 
-# Dispara o workflow a cada push na branch main
 on:
+  # Roda em pushes na branch main
   push:
-    branches:
-      - main
+    branches: ["main"]
+  # Permite disparo manual
+  workflow_dispatch:
 
-# Garante que o GITHUB_TOKEN possa escrever no repositório
+# Permissões necessárias para leitura e escrita no Pages
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# Garante que só haja uma implantação por vez
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-deploy:
+  deploy:
+    # Ambiente Pages expõe a URL final
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
-      # Faz checkout do seu código
+      # 1) Check out do código
       - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # necessário para actions-gh-pages
+        uses: actions/checkout@v4
 
-      # Deploy da pasta docs/ para a branch gh-pages
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+      # 2) Configura o GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 3) Empacota apenas o diretório docs/ como artefato
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: docs
-          keep_files: false
+          path: docs
+
+      # 4) Publica o artifact via deploy-pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
