@@ -1,0 +1,29 @@
+name: Deploy to GitHub Pages
+
+# Dispara o workflow a cada push na branch main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Faz checkout do seu código
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Deploy da pasta docs/ para a branch gh-pages
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # Token gerenciado pelo GitHub para permitir o push
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Nome da branch de destino
+          publish_branch: gh-pages
+          # Diretório com os arquivos a publicar
+          publish_dir: docs
+          # Mantém histórico de commits no gh-pages (opcional)
+          keep_files: false
